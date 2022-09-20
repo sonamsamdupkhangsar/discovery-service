@@ -76,13 +76,13 @@ envs:
 
 health:
   liveness:
-    path: /api/health/liveness
+    path: /actuator/health
     port: 8761
     initialDelaySeconds: 20
     periodSeconds: 5
     failureThreshold: 5
   readiness:
-    path: /api/health/readiness
+    path: /actuator/health
     port: 8761
     initialDelaySeconds: 20
     periodSeconds: 5
