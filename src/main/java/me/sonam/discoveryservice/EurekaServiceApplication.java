@@ -24,7 +24,7 @@ public class EurekaServiceApplication {
 		SpringApplication.run(EurekaServiceApplication.class, args);
 	}
 
-	@PostConstruct
+	//@PostConstruct
 	public void logProperty() {
 		LOG.info("eureka user: {}, password: {}", user, password);
 	}
