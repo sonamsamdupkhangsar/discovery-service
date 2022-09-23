@@ -1,11 +1,13 @@
 server:
   port: 8761
 eureka:
-  instance:
-    hostname: discovery-service.sonam.cloud
   client:
+    instance:
+      hostname: localhost
     registerWithEureka: false
     fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
 spring:
   security:
@@ -15,6 +17,6 @@ spring:
 
 logging:
   level:
-    root: error
+    root: debug
     me:
       sonam: info
