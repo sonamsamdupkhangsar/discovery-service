@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.reactive.CorsConfigurationSource;
-import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -34,7 +34,7 @@ public class EurekaServiceApplication {
 		LOG.info("eureka user: {}, password: {}", user, password);
 	}
 
-	@Bean
+
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration corsConfig = new CorsConfiguration();
 		corsConfig.setAllowedOrigins(List.of("*"));
@@ -44,6 +44,6 @@ public class EurekaServiceApplication {
 
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfig);
-		return source;
+		return  source;
 	}
 }

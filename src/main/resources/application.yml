@@ -3,13 +3,15 @@ server:
 eureka:
   client:
     instance:
-      hostname: localhost
+      hostname: discover-service.sonam.cloud
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: https://discovery-service.sonam.cloud/eureka
 
 spring:
+  main:
+    allow-bean-definition-overriding: true
   security:
     user:
       name: ${EUREKA_USER}
