@@ -19,7 +19,9 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authz) -> authz
+                        .antMatchers("/actuator/health").permitAll()
                         .anyRequest().authenticated()
+
                 )
                 .httpBasic(withDefaults()).csrf().disable();
         return http.build();
