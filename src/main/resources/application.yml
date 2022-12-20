@@ -3,7 +3,7 @@ server:
 eureka:
   client:
     instance:
-      hostname: discover-service.sonam.cloud
+      hostname: discovery-service.sonam.cloud
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
