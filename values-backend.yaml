@@ -90,7 +90,7 @@ health:
 
 
 secretFiles:
-  - file: eureka-discovery-app
+  - file: eureka-discovery
     keys:
       - key: user
         name: EUREKA_USER
