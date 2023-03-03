@@ -91,15 +91,6 @@ health:
     periodSeconds: 5
     failureThreshold: 5
 
-
-secretFiles:
-  - file: eureka-discovery
-    keys:
-      - key: username
-        name: EUREKA_USER
-      - key: password
-        name: EUREKA_PASSWORD
-
 #This is for deploying sealed-secret.yaml file using the Helm chart.
 sealedSecrets:
   - key: eureka_username
