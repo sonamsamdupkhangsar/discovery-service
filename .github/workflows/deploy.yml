@@ -61,6 +61,6 @@ jobs:
             --set "image.tag=latest" \
             --set "project=$PROJECT_NAME" \
              $PROJECT_NAME \
-            sonam/mychart -f values-backend.yaml --version 0.1.24 --namespace=backend
+            sonam/mychart -f values-backend.yaml --version 0.1.25 --namespace=backend
 
 

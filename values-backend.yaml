@@ -72,7 +72,10 @@ tolerations: []
 affinity: {}
 
 envs:
-
+  - name: EUREKA_USER
+    value: $(eureka_username)
+  - name: EUREKA_PASSWORD
+    value: $(eureka_password)
 
 health:
   liveness:
@@ -99,7 +102,7 @@ secretFiles:
 
 #This is for deploying sealed-secret.yaml file using the Helm chart.
 sealedSecrets:
-  - key: username
+  - key: eureka_username
     value: AgCeL1QwTgQXqd9RImCz8Enz2sy6ub/dFYmAsLG4vt1VSnHzj1x/fYuLPxib/RkSVTMMqcccVfJuaSoWTUui8Y8cBfsvYzZ7XfBp+5ZnkEM36zEP6S5NM0tGW0Md+mSfHAEPos1K5CxS64oe0v2LejaPf+jmBqIO6uWaT9oczSxsTqm2me0y+2jbzzJfJBf615/9h8BrGruMnPv2X7FDnqsnRiNmCeEvnJbgo+xW4I5pF/sGHiRI3OM+oPYjpbbF5aJVlOpFDPHH0pU+RRVOkixnhG+a0GZquKQEi5rPRm2hlu4BHQyHtq3fIG4YSa27SCxJYlfkCG4aMX2Tw7VWPpLctJg4J2j5AHprMReGxklFgviXXobNWmqqVH4uuWfWUX+ElT4s9Icdfh+NMoWTH4+MxXspUvJ5ylLoucRyjZ6im0wuebEmq147i7XkXqXEF47EYRoE91dzblSdmHI24F5oMZamGJF/vRpPZCMBHfw8L5ImznYXMwaGbIjbYDUnH20SqC+gIZ/1P+C5p5RJjekAMsm3eL4sn2NLFPEv5K8bb/yD1iuxycgXI38jOhLOrcdAf0DQpdu4vbCV/HREBRGxkLRNzgWWLRCs1dMC2ODgcgNaWMhGs87+65fPnerAKBsoHn7mkrNLo3zKn7kmMJdsUsX5cy4wNkEBR8phjtlEQZHBdLs4FXATS81v6ERoz4VN/94jCbBFt/27JseuhZRR5g==
-  - key: password
+  - key: eureka_password
     value: AgCeGiiCeTN2/7uFRvQT54CnvPUoWllrJWBg6ukludxNZhPQgLrxOOpbfvf8aBHF8Eeargvgi/rkdOUZdJTH4KNSsDHHU8VPrjq607UpYQBzPy9/TGYmzTROqPO4fMkP8NzAymmer0VTehclOqs76tkTlAMA5AufpCjJ3XjhMXsfst/s70ZJwVah9x2NQ2tZfIWd6bCqZYUB/pV7oE18xXqPJ+NpzNCqYOtGBUun3sv+XgzgkSE2OfmpMqUK278KQzPbGGv96zbzRwzbPyo1jvkaHZVEhjvGlueftyZ9GVnqHniiTknFc31WnuonBhg1L9+9JYZvYZtDbwGmlysp/g94MhQ9HpdZ34F5jsbWiOnLk3bn6v3XCG5D/ntvrlw0apG6XCLVWvi/xJxOTRzis2RY3azdnvNrbXKhgtUrvYSXObrLjOOqvFXsEn3XmOb3pAOT4y9X7yYLKxRaQgiHEuCMPVwTmE5ttSsPhA3V/jDQi3Xuw9pqWWgBzeAfGNXWZlLWvLcCU8Eluj0xXhXOi969NJtyDhGUtHBD6hvwdAskl0V9OKlOlCzKZbg9KEegpyhx1DwE78lQb8blqYvZA1f7dnSJf4QW7+MrUGVgSx7besmPydOqtITVrNzvPDNtp4OLP911jZJB/lmZvkRCpjCwDQ4OK2vEoOd6kIjwGucaCHsw0+KVGSTYq6cPXS/TFdGSxsMewsv8yp0r/t21OygIdxPz
