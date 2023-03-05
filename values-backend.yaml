@@ -73,7 +73,6 @@ affinity: {}
 
 envs:
 
-
 health:
   liveness:
     path: /actuator/health
@@ -87,3 +86,11 @@ health:
     initialDelaySeconds: 20
     periodSeconds: 5
     failureThreshold: 5
+
+secretFiles:
+  - file: eureka-discovery
+    keys:
+      - key: user
+        name: EUREKA_USER
+      - key: password
+        name: EUREKA_PASSWORD

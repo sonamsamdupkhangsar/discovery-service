@@ -1,13 +1,17 @@
 server:
   port: 8761
 eureka:
-  instance:
-    hostname: discovery-service.sonam.cloud
   client:
+    instance:
+      hostname: discovery-service.sonam.cloud
     registerWithEureka: false
     fetchRegistry: false
+    serviceUrl:
+      defaultZone: https://discovery-service.sonam.cloud/eureka
 
 spring:
+  main:
+    allow-bean-definition-overriding: true
   security:
     user:
       name: ${EUREKA_USER}
@@ -15,6 +19,6 @@ spring:
 
 logging:
   level:
-    root: error
+    root: debug
     me:
       sonam: info
