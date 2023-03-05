@@ -91,6 +91,6 @@ secretFiles:
   - file: eureka-discovery
     keys:
       - key: user
-        name: EUREKA_USERNAME
+        name: EUREKA_USER
       - key: password
         name: EUREKA_PASSWORD
