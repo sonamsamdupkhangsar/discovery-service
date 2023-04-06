@@ -3,11 +3,11 @@ server:
 eureka:
   client:
     instance:
-      hostname: discovery-service.sonam.cloud
+      hostname: ${hostName}
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: https://discovery-service.sonam.cloud/eureka
+      defaultZone: ${defaultZone}
 
 spring:
   main:
@@ -19,6 +19,6 @@ spring:
 
 logging:
   level:
-    root: debug
+    root: info
     me:
       sonam: info
