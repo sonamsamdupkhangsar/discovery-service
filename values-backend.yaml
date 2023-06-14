@@ -72,6 +72,8 @@ tolerations: []
 affinity: {}
 
 envs:
+  - name: SERVER_PORT
+    value: 8080
   - name: HOSTNAME
     value: discovery-service.sonam.cloud
   - name: DEFAULT_ZONE

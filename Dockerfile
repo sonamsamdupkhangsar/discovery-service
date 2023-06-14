@@ -1,17 +1,19 @@
-FROM maven:3-openjdk-17-slim as build
+# syntax=docker/dockerfile:experimental
+FROM eclipse-temurin:17-jdk-alpine AS build
+WORKDIR /workspace/app
 
-WORKDIR /app
+COPY . /workspace/app
 
-COPY pom.xml ./
-COPY src ./src
+RUN --mount=type=cache,target=/root/.gradle ./gradlew clean build
+RUN  mkdir -p build/dependency && (cd build/dependency; jar -xf ../libs/discovery-service-1.0.jar)
 
-RUN ["mvn", "clean", "install"]
+FROM eclipse-temurin:17-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=/workspace/app/build/dependency
 
-FROM openjdk:16
-WORKDIR /app
-COPY --from=build /app/target/discovery-service-1.0-SNAPSHOT.jar /app/discovery-service.jar
-EXPOSE 8080
-
-ENTRYPOINT [ "java", "-jar", "/app/discovery-service.jar"]
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","me.sonam.discoveryservice.EurekaServiceApplication"]
 
 LABEL org.opencontainers.image.source https://github.com/sonamsamdupkhangsar/discovery-service
