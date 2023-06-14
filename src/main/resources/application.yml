@@ -3,11 +3,11 @@ server:
 eureka:
   client:
     instance:
-      hostname: ${hostName}
+      hostname: ${HOSTNAME}
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: ${defaultZone}
+      defaultZone: ${DEFAULT_ZONE}
 
 spring:
   main:

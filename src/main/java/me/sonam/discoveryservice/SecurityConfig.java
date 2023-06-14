@@ -18,12 +18,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authz) -> authz
-                        .antMatchers("/actuator/health").permitAll()
+                .authorizeHttpRequests(authz-> authz.requestMatchers("/actuator/health").permitAll()
                         .anyRequest().authenticated()
 
                 )
-                .httpBasic(withDefaults()).csrf().disable();
+                .httpBasic(withDefaults()).csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());
         return http.build();
     }
 
