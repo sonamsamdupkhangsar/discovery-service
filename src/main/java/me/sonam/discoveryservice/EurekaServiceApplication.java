@@ -1,5 +1,6 @@
 package me.sonam.discoveryservice;
 
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,10 +11,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-
-import javax.annotation.PostConstruct;
 import java.util.List;
-
 @EnableEurekaServer
 @SpringBootApplication
 public class EurekaServiceApplication {
