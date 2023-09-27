@@ -1,5 +1,6 @@
 # Eureka Discover Service
 This is the Eureka discovery service for registering internal api.
+This is used for client side load balancing and looking up services.
 
 Run locally with:
 ```
