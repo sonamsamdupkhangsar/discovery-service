@@ -53,17 +53,13 @@ ingress:
       hosts:
         - "*.sonam.cloud"
 
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-#   memory: 128Mi
+resources:
+  requests:
+    cpu: 200m
+    memory: 512Mi
+  limits:
+    cpu: 500m
+    memory: 768Mi
 
 nodeSelector: {}
 
@@ -72,6 +68,8 @@ tolerations: []
 affinity: {}
 
 envs:
+  - name: JAVA_TOOL_OPTIONS
+    value: "-XX:MaxRAMPercentage=70 -XX:InitialRAMPercentage=25"
   - name: SERVER_PORT
     value: 8761
   - name: HOSTNAME
